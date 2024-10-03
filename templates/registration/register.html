@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Registro de Usuário</h2>
+    {% if messages %}
+        <div class="alert alert-info">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="full_name">Nome Completo:</label>
+            <input type="text" class="form-control" id="full_name" name="full_name" required>
+        </div>
+        <div class="form-group">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password1">Senha:</label>
+            <input type="password" class="form-control" id="password1" name="password1" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+
+        <h4>Informações Opcionais</h4>
+        <div class="form-group">
+            <label for="age">Idade:</label>
+            <input type="number" class="form-control" id="age" name="age">
+        </div>
+        <div class="form-group">
+            <label for="birth_date">Data de Nascimento:</label>
+            <input type="date" class="form-control" id="birth_date" name="birth_date">
+        </div>
+        <div class="form-group">
+            <label for="city">Cidade:</label>
+            <input type="text" class="form-control" id="city" name="city">
+        </div>
+        <div class="form-group">
+            <label for="state">Estado:</label>
+            <input type="text" class="form-control" id="state" name="state">
+        </div>
+        <div class="form-group">
+            <label for="address">Endereço:</label>
+            <input type="text" class="form-control" id="address" name="address">
+        </div>
+        <div class="form-group">
+            <label for="whatsapp">WhatsApp:</label>
+            <input type="text" class="form-control" id="whatsapp" name="whatsapp">
+        </div>
+        <div class="form-group">
+            <label for="avatar">Foto para Avatar:</label>
+            <input type="file" class="form-control" id="avatar" name="avatar">
+        </div>
+        <div class="form-group">
+            <label for="biography">Biografia:</label>
+            <textarea class="form-control" id="biography" name="biography"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="nickname">Me Conhece Como?:</label>
+            <input type="text" class="form-control" id="nickname" name="nickname">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
+{% endblock %}

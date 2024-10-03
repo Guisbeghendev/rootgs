@@ -27,20 +27,23 @@ SECRET_KEY = 'django-insecure-!scby3#214kx9!c16qe8h&y0456efm_zf%gg=t!%9lmrtxo&f#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['guisbeghen.com.br', 'www.guisbeghen.com.br']
-
+# Ativar de acordo com o momento
+# ALLOWED_HOSTS = ['guisbeghen.com.br', 'www.guisbeghen.com.br'] #para desenvolvimento
+# ALLOWED_HOSTS = [] #para produção
+ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.auth',  # App de autenticação do Django
+    'django.contrib.contenttypes',  # Necessário para o sistema de autenticação
     # meus apps
-    'home',
+    'home', #pagina inicial
+    'autenticad', #autentica user
 ]
 
 MIDDLEWARE = [
@@ -113,6 +116,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/'  # Página para redirecionar após login
+LOGOUT_REDIRECT_URL = '/login/'  # Página para redirecionar após logout
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -136,6 +143,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Caminho para coletar os a
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Diretório onde você armazena arquivos estáticos durante o desenvolvimento
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 
 # Default primary key field type

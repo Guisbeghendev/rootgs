@@ -16,10 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+from autenticad import views as autenticad_views  # Importação das views do app autenticad
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),  # Adiciona o subapp home
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'), # autenticad
+    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'), # autenticad
+    path('register/', autenticad_views.register, name='register'), # autendicad
+    
+    # Adicione suas outras URLs aqui
 ]
 
 
+
+# Adiciona o código para servir arquivos de mídia apenas em modo DEBUG
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
