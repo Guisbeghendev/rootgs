@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-!scby3#214kx9!c16qe8h&y0456efm_zf%gg=t!%9lmrtxo&f#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['guisbeghen.com.br', 'www.guisbeghen.com.br']
 
 
 # Application definition
@@ -125,13 +126,15 @@ USE_I18N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 
 STATIC_URL = '/static/'  # URL para os arquivos estáticos
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Caminho para coletar os arquivos estáticos
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Adiciona o diretório estático
+    os.path.join(BASE_DIR, 'static'),  # Diretório onde você armazena arquivos estáticos durante o desenvolvimento
 ]
 
 
