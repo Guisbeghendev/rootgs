@@ -1,0 +1,110 @@
+/* body */
+body { /* define o fundo geral do corpo da pagina */
+    background-color: white !important;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+}
+
+/* area do logo */
+.header {
+    background-color: black; /* Cor de fundo do cabeçalho */
+    max-height: 100%; /* Altura do cabeçalho */
+    height: 250px;
+    max-width: 100%; /* largura do cabeçalho */
+    width: 100%;
+    display: flex; /* Usar flexbox para centralizar o logotipo */
+    align-items: center; /* Alinha o logotipo verticalmente no centro */
+    justify-content: center; /* Centraliza horizontalmente */ 
+    margin-top: 30px;
+    margin-bottom: 0px; 
+}
+
+
+/* menu principal */
+/* menu principal feito com bootstrap */
+.menuprincipal{
+    /*max-width: 100%;*/
+    margin-top: 0px;
+    /*background-color: black;*/
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menuprincipal .navbar {
+    background-color: #000000; /* Fundo preto */
+}
+.menuprincipal .nav-link {
+    color: #ffffff; /* Texto branco */
+    font-weight: bold; /* Negrito */
+}
+.menuprincipal .nav-link:hover {
+    background-color: #ffffff; /* Fundo branco ao passar o mouse */
+    color: #000000; /* Texto preto ao passar o mouse */
+}
+.menuprincipal .nav-link.active, /* Para o link ativo */
+.menuprincipal .nav-link:focus {
+    background-color: #007bff; /* Fundo azul ao clicar */
+    color: #000000; /* Texto preto ao clicar */
+}
+/* para fazer o link ativo 
+<li class="nav-item">
+    <a class="nav-link active" href="#">Link 1</a> <!-- Exemplo de link ativo -->
+</li>
+*/
+
+
+
+/* area do conteudo principal */
+.main-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 1%;
+    box-sizing: border-box;
+}
+.conteudo{
+    background-color: #fff;
+    padding: 5%;
+}
+
+
+/* seção no conteudo principal */
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 2rem;
+}
+.section img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.section h1 {
+    margin-bottom: 1rem;
+}
+.section p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* rodape/footer */
+.footer {
+    /*background-color: black;*/
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    padding: 3rem;
+    width: 100%;
+}
