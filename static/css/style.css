@@ -1,65 +1,56 @@
+/* css unico para todo o projeto */
+
+/* Estilos comuns usados no base.html */
 /* body */
-body { /* define o fundo geral do corpo da pagina */
+body { 
     background-color: white !important;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
 }
 
-/* area do logo */
+/* Área do logo */
 .header {
-    background-color: black; /* Cor de fundo do cabeçalho */
-    max-height: 100%; /* Altura do cabeçalho */
+    background-color: black; 
     height: 250px;
-    max-width: 100%; /* largura do cabeçalho */
     width: 100%;
-    display: flex; /* Usar flexbox para centralizar o logotipo */
-    align-items: center; /* Alinha o logotipo verticalmente no centro */
-    justify-content: center; /* Centraliza horizontalmente */ 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;  
     margin-top: 30px;
     margin-bottom: 0px; 
 }
 
-
-/* menu principal */
-/* menu principal feito com bootstrap */
+/* Menu principal feito com Bootstrap */
 .menuprincipal{
-    /*max-width: 100%;*/
+    background-color: #343a40;
+    padding: 10px 0;
+    display: flex;              /* Usar flexbox para dispor os itens em linha */
+    justify-content: space-around; /* Distribui os itens com espaço igual ao redor */
+    flex-wrap: wrap;           /* Permite que os itens quebrem a linha se não houver espaço suficiente */
+    padding: 10px;             /* Adicione algum padding, se necessário */
     margin-top: 0px;
-    /*background-color: black;*/
     width: 600px;
-    display: flex;
     align-items: center;
-    justify-content: center;
 }
 .menuprincipal .navbar {
-    background-color: #000000; /* Fundo preto */
+    background-color: #000000;
 }
 .menuprincipal .nav-link {
-    color: #ffffff; /* Texto branco */
-    font-weight: bold; /* Negrito */
+    color: #ffffff; 
+    font-weight: bold;
 }
 .menuprincipal .nav-link:hover {
-    background-color: #ffffff; /* Fundo branco ao passar o mouse */
-    color: #000000; /* Texto preto ao passar o mouse */
+    background-color: #ffffff;
+    color: #000000; 
 }
-.menuprincipal .nav-link.active, /* Para o link ativo */
+.menuprincipal .nav-link.active,
 .menuprincipal .nav-link:focus {
-    background-color: #007bff; /* Fundo azul ao clicar */
-    color: #000000; /* Texto preto ao clicar */
+    background-color: #007bff; 
+    color: #000000; 
 }
-/* para fazer o link ativo 
-<li class="nav-item">
-    <a class="nav-link active" href="#">Link 1</a> <!-- Exemplo de link ativo -->
-</li>
-*/
 
-
-
-/* area do conteudo principal */
+/* Área do conteúdo principal */
 .main-content {
     display: flex;
     align-items: flex-start;
@@ -74,8 +65,7 @@ body { /* define o fundo geral do corpo da pagina */
     padding: 5%;
 }
 
-
-/* seção no conteudo principal */
+/* Seção no conteúdo principal */
 .section {
     display: flex;
     flex-direction: column;
@@ -99,12 +89,47 @@ body { /* define o fundo geral do corpo da pagina */
     line-height: 1.6;
 }
 
-/* rodape/footer */
+/* Rodapé/footer */
 .footer {
-    /*background-color: black;*/
     display: flex;
     justify-content: space-around;
     color: #fff;
     padding: 3rem;
     width: 100%;
+}
+
+/* Estilos específicos para o dashboard */
+.dashboard-content {
+    flex-grow: 1;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+/* Estilos do novo menu para o dashmenu.html */
+.dashmenu {
+    background-color: #343a40;
+    padding: 10px 0;
+    display: flex;              /* Usar flexbox para dispor os itens em linha */
+    justify-content: space-around; /* Distribui os itens com espaço igual ao redor */
+    flex-wrap: wrap;           /* Permite que os itens quebrem a linha se não houver espaço suficiente */
+    padding: 10px;             /* Adicione algum padding, se necessário */
+    margin-top: 0px;
+    width: 600px;
+    align-items: center;
+}
+.dashmenu .navbar {
+    background-color: #000000;
+}
+.dashmenu .nav-link {
+    color: #ffffff; 
+    font-weight: bold;
+}
+.dashmenu .nav-link:hover {
+    background-color: #ffffff;
+    color: #000000; 
+}
+.dashmenu .nav-link.active,
+.dashmenu .nav-link:focus {
+    background-color: #007bff; 
+    color: #000000; 
 }

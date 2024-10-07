@@ -1,35 +1,33 @@
+# autenticad/views.py
+
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.contrib import messages
-from django.core.files.storage import FileSystemStorage
+from .forms import UserRegistrationForm
+from django.contrib.auth import login
+from django.contrib.auth import views as auth_views
 
 def register(request):
+    """Handle user registration and automatic login after successful registration."""
+    
     if request.method == 'POST':
-        full_name = request.POST.get('full_name')
-        username = request.POST.get('username')
-        password1 = request.POST.get('password1')
-        email = request.POST.get('email')
-        age = request.POST.get('age')
-        birth_date = request.POST.get('birth_date')
-        city = request.POST.get('city')
-        state = request.POST.get('state')
-        address = request.POST.get('address')
-        whatsapp = request.POST.get('whatsapp')
-        avatar = request.FILES.get('avatar')
-        biography = request.POST.get('biography')
-        nickname = request.POST.get('nickname')
-
-        # Cria um novo usuário
-        try:
-            user = User.objects.create_user(username=username, password=password1, email=email)
-            user.first_name = full_name
+        # Instantiate the registration form with POST data and files (if any).
+        form = UserRegistrationForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            # Create a user instance but do not save it to the database yet.
+            user = form.save(commit=False)
+            # Set the password for the user instance.
+            user.set_password(form.cleaned_data['password1'])  # Encrypt the password
+            # Save the user instance to the database.
             user.save()
-            # Aqui você pode adicionar a lógica para salvar as informações opcionais em um modelo separado se desejar
+            # Automatically log the user in after successful registration.
+            login(request, user)
+            messages.success(request, 'Registro bem-sucedido! Você agora está logado.')
+            # Redirect to the home page or another page after registration.
+            return redirect('home')
+    else:
+        # If the request is not POST, instantiate a new empty form.
+        form = UserRegistrationForm()
 
-            messages.success(request, 'Usuário registrado com sucesso!')
-            return redirect('login')  # Redireciona para a página de login após o registro
-        except Exception as e:
-            messages.error(request, f'Erro ao registrar: {e}')
-
-    return render(request, 'registration/register.html')
-
+    # Render the registration template with the form.
+    return render(request, 'registration/register.html', {'form': form})

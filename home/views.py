@@ -1,4 +1,5 @@
 # home/views.py
+
 from django.shortcuts import render
 
 def index(request):

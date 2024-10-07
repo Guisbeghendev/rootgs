@@ -1,3 +1,5 @@
+# settings.py principal
+
 """
 Django settings for GuiSbeghen project.
 
@@ -117,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LOGIN_REDIRECT_URL = '/'  # Página para redirecionar após login
-LOGOUT_REDIRECT_URL = '/login/'  # Página para redirecionar após logout
+LOGOUT_REDIRECT_URL = 'login'  # Página para redirecionar após logout
 
 
 

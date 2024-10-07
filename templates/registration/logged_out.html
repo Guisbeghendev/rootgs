@@ -1,0 +1,8 @@
+<!-- templates/registration/logged_out.html-->
+
+{% extends 'dashbase.html' %}
+
+{% block content %}
+  <h2>Você saiu do sistema com sucesso</h2>
+  <p><a href="{% url 'login' %}">Voltar para a página de login</a></p>
+{% endblock %}

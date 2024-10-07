@@ -1,4 +1,5 @@
 # home/urls.py
+
 from django.urls import path
 from .views import index  # Importa a função index
 
