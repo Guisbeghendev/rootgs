@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'django.contrib.auth',  # App de autenticação do Django
     'django.contrib.contenttypes',  # Necessário para o sistema de autenticação
     # meus apps
     'home', #pagina inicial
     'autenticad', #autentica user
+    'dashboard', #pagina inicial do user
 ]
 
 MIDDLEWARE = [
@@ -118,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = '/'  # Página para redirecionar após login
+LOGIN_REDIRECT_URL = '/dashboard/'  # Página para redirecionar após login
 LOGOUT_REDIRECT_URL = 'login'  # Página para redirecionar após logout
 
 
@@ -126,13 +128,13 @@ LOGOUT_REDIRECT_URL = 'login'  # Página para redirecionar após logout
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'  # Define o idioma para português do Brasil
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'  # Define o fuso horário para o Brasil (horário de São Paulo)
 
-USE_I18N = True
+USE_I18N = True  # Mantém a internacionalização ativa
 
-USE_TZ = True
+USE_TZ = True  # Usa o timezone definido
 
 
 

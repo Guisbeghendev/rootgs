@@ -1,0 +1,56 @@
+<!-- autenticad/templates/autenticad/perfil.html -->
+
+
+{% extends 'dashbase.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Perfil de Usuário</h2>
+    <ul>
+        {% if username %}
+            <li><strong>Nome de Usuário:</strong> {{ username }}</li>
+        {% endif %}
+        {% if email %}
+            <li><strong>E-mail:</strong> {{ email }}</li>
+        {% endif %}
+        {% if first_name %}
+            <li><strong>Nome:</strong> {{ first_name }}</li>
+        {% endif %}
+        {% if last_name %}
+            <li><strong>Sobrenome:</strong> {{ last_name }}</li>
+        {% endif %}
+        {% if age %}
+            <li><strong>Idade:</strong> {{ age }}</li>
+        {% endif %}
+        {% if birth_date %}
+            <li><strong>Data de Nascimento:</strong> {{ birth_date }}</li>
+        {% endif %}
+        {% if city %}
+            <li><strong>Cidade:</strong> {{ city }}</li>
+        {% endif %}
+        {% if state %}
+            <li><strong>Estado:</strong> {{ state }}</li>
+        {% endif %}
+        {% if address %}
+            <li><strong>Endereço:</strong> {{ address }}</li>
+        {% endif %}
+        {% if whatsapp %}
+            <li><strong>WhatsApp:</strong> {{ whatsapp }}</li>
+        {% endif %}
+        {% if avatar %}
+            <li><strong>Avatar:</strong> <img src="{{ avatar.url }}" alt="Avatar" /></li>
+        {% endif %}
+        {% if biography %}
+            <li><strong>Biografia:</strong> {{ biography }}</li>
+        {% endif %}
+        {% if nickname %}
+            <li><strong>Me Conhece Como?:</strong> {{ nickname }}</li>
+        {% endif %}
+    </ul>
+
+    <!-- Botão para editar o perfil -->
+    <div>
+        <a href="/editar_perfil/">Editar Perfil</a>
+    </div>
+</div>
+{% endblock %}

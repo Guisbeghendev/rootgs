@@ -23,19 +23,17 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from autenticad import views as autenticad_views  # Importação das views do app autenticad
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),  # Adiciona o subapp home
     path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'), # autenticad
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'), # autenticad
-    path('register/', autenticad_views.register, name='register'), # autendicad
-    
-    # Adicione suas outras URLs aqui
+    path('register/', autenticad_views.register, name='register'), # autenticad
+    path('perfil/', autenticad_views.perfil, name='perfil'),  # URL do perfil
+    path('', include('autenticad.urls')),  # **ADICIONE ESTA LINHA PARA INCLUIR AS URLS DO AUTENTICAD**
+    path('dashboard/', include('dashboard.urls')),  # Adiciona o subapp dashboard
 ]
 
-
-
-# Adiciona o código para servir arquivos de mídia apenas em modo DEBUG
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
